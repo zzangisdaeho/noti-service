@@ -1,0 +1,40 @@
+spring:
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/noti?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: noti
+#      authentication-database: admin
+      username: noti
+      password: noti
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+      format_sql: true
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: noti
+    producer:
+      bootstrap-servers: localhost:9092
+
+logging:
+  level:
+    #http request logging
+    org.apache.coyote.http11: debug
+#    com.example.notiservice: debug
+    org:
+      hibernate:
+        SQL: debug
+        type.descriptor.sql.BasicBinder: trace
+
