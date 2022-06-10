@@ -14,4 +14,5 @@ public class TestController {
     public void sendMessage(String message){
         kafkaProducerService.sendMessage(message);
     }
+
 }

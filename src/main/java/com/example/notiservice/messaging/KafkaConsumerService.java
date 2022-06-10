@@ -11,7 +11,7 @@ public class KafkaConsumerService {
     private static final String TOPIC = "send-result";
 
     @KafkaListener(topics = TOPIC)
-    public void consume(String message){
+    public void consume(Object message){
       log.info("receive message : {}", message);
     }
 }
