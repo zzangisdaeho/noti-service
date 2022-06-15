@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+
 @SpringBootTest
 public class MongoTest {
 
@@ -24,8 +25,8 @@ public class MongoTest {
     @Test
     void write(){
         Book book = new Book();
-        book.setName("test2");
-        book.setAuthor("daeho2");
+        book.setName("test1");
+        book.setAuthor("daeho1");
         bookRepository.save(book);
     }
 }
