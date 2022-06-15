@@ -1,5 +1,9 @@
 spring:
 
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
   datasource:
     url: jdbc:mysql://localhost:3306/noti?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
@@ -19,14 +23,16 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
-      format_sql: true
+        format_sql: true
 
   kafka:
     consumer:
       bootstrap-servers: localhost:9092
       group-id: noti
+#      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
     producer:
       bootstrap-servers: localhost:9092
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 logging:
   level:
