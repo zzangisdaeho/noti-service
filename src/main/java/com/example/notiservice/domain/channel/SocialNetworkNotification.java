@@ -1,9 +1,6 @@
 package com.example.notiservice.domain.channel;
 
-import com.example.notiservice.db.nosql.document.Status;
 import com.example.notiservice.domain.system_profile.SocialNetworkSystemProfile;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -20,7 +17,7 @@ public class SocialNetworkNotification extends NotificationChannel{
     private String senderSocialNetworkId;
     @NotEmpty
     private String receiverSocialNetworkId;
-    @Valid
+//    @Valid
     private SocialNetworkSystemProfile targetSocialNetworkSystem;
 
     public SocialNetworkNotification(String transactionId, String type, Status status, String senderSocialNetworkId, String receiverSocialNetworkId, SocialNetworkSystemProfile targetSocialNetworkSystem) {

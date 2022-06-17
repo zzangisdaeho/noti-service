@@ -1,10 +1,6 @@
 package com.example.notiservice.domain.channel;
 
-import com.example.notiservice.db.nosql.document.Status;
 import com.example.notiservice.domain.system_profile.EmailSystemProfile;
-import com.example.notiservice.domain.system_profile.SystemProfile;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -24,7 +20,7 @@ public class EmailNotification extends NotificationChannel{
     @Email
     @NotEmpty
     private String receiverEmailAddress;
-    @Valid
+//    @Valid
     private EmailSystemProfile targetEmailSystem;
 
     public EmailNotification(String transactionId, String type, Status status, String senderEmailAddress, String receiverEmailAddress, EmailSystemProfile targetEmailSystem) {

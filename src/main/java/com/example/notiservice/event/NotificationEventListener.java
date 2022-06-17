@@ -1,5 +1,6 @@
 package com.example.notiservice.event;
 
+import com.example.notiservice.db.nosql.document.NotificationLog;
 import com.example.notiservice.messaging.KafkaProducerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +29,7 @@ public class NotificationEventListener {
     @EventListener
     public void sendFailEvent(FailEventDto failEventDto) {
         log.info("Fail Event Listener active for FailEventDto : {}", failEventDto);
+
         kafkaProducerService.sendResultMessage(failEventDto.toString());
     }
 

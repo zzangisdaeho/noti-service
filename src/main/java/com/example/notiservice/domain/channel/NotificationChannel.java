@@ -1,7 +1,5 @@
 package com.example.notiservice.domain.channel;
 
-import com.example.notiservice.db.nosql.document.Status;
-import com.example.notiservice.db.nosql.document.SuccessLog;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -10,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -34,8 +31,12 @@ public abstract class NotificationChannel {
 
     private String type;
 
-    @JsonIgnore
+//    @JsonIgnore
     private Status isSuccess;
 
 //    protected abstract String getType();
+
+    public boolean isSuccess(){
+        return this.isSuccess == Status.SUCCESS;
+    }
 }

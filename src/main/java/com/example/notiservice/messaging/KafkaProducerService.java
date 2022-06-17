@@ -27,8 +27,13 @@ public class KafkaProducerService {
     }
 
     public void sendRetryMessage(String channel){
-        log.info("retry message : {}, send with topic {}", channel, TopicConstList.NOTIFICATION_SEND_RETRY);
-
+        log.warn("retry message : {}, send with topic {}", channel, TopicConstList.NOTIFICATION_SEND_RETRY);
         kafkaTemplate.send(TopicConstList.NOTIFICATION_SEND_RETRY, channel);
+//        Message<String> message = MessageBuilder
+//                .withPayload(channel)
+//                .setHeader(KafkaHeaders.RETRY_COUNT, retryCount)
+//                .build();
+//
+//        kafkaTemplate.send(TopicConstList.NOTIFICATION_SEND_RETRY, message);
     }
 }

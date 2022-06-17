@@ -11,6 +11,6 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public abstract class SystemProfile {
 
-    @NotEmpty
+//    @NotEmpty
     private String credential;
 }

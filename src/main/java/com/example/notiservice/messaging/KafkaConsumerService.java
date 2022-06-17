@@ -41,7 +41,6 @@ public class KafkaConsumerService {
             Notification notification = objectMapper.readValue(arrive, Notification.class);
             ValidationUtil.checkValidation(notification);
 
-            log.info("receive notification : {}", notification);
             notificationService.sendProcess(notification);
         } catch (JsonProcessingException e) {
             log.error("json String converting error", e);
@@ -62,15 +61,15 @@ public class KafkaConsumerService {
             HashMap<String, Object> map = objectMapper.readValue(retryMessage, new TypeReference<HashMap<String, Object>>() {});
             String title = (String) map.get("title");
             String content = (String) map.get("content");
+            String senderId = (String) map.get("senderId");
             int retry = (int) map.get("retryCount");
 
             RetryEventDto retryEventDto = objectMapper.readValue(retryMessage, RetryEventDto.class);
             NotificationChannel notificationChannel = retryEventDto.getChannel();
-            log.info("retry target : {}, try count : {}", notificationChannel, retry);
+            log.warn("retry target : {}, try count : {}", notificationChannel, retry);
             ValidationUtil.checkValidation(notificationChannel);
 
-            log.info("receive notificationChannel : {}", notificationChannel);
-            notificationService.retryProcess(notificationChannel, title, content, retry);
+            notificationService.retryProcess(notificationChannel, title, content, senderId, retry);
         } catch (JsonProcessingException e) {
             log.error("json String converting error", e);
             applicationEventPublisher.publishEvent(new FailEventDto("json String converting error", e));

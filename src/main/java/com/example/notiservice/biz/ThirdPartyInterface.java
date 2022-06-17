@@ -1,6 +1,7 @@
 package com.example.notiservice.biz;
 
 import com.example.notiservice.domain.channel.NotificationChannel;
+import lombok.RequiredArgsConstructor;
 
 import java.util.concurrent.CompletableFuture;
 

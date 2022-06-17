@@ -26,6 +26,7 @@ dependencies {
     implementation 'org.springframework.kafka:spring-kafka'
 //    http://localhost:8080/swagger-ui/index.html
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
+//    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'

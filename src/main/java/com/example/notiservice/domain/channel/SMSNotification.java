@@ -1,9 +1,6 @@
 package com.example.notiservice.domain.channel;
 
-import com.example.notiservice.db.nosql.document.Status;
 import com.example.notiservice.domain.system_profile.SMSSystemProfile;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -22,7 +19,7 @@ public class SMSNotification extends NotificationChannel{
     private String senderPhoneNumber;
     @NotEmpty
     private String receiverPhoneNumber;
-    @Valid
+//    @Valid
     private SMSSystemProfile targetSMSSystem;
 
     public SMSNotification(String transactionId, String type, Status status, String senderPhoneNumber, String receiverPhoneNumber, SMSSystemProfile targetSMSSystem) {

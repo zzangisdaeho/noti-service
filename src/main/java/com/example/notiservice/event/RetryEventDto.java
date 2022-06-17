@@ -20,10 +20,13 @@ public class RetryEventDto {
 
     private String content;
 
-    public RetryEventDto(NotificationChannel channel, int retryCount, String title, String content) {
+    private String senderId;
+
+    public RetryEventDto(NotificationChannel channel, int retryCount, String title, String content, String senderId) {
         this.channel = channel;
         this.retryCount = retryCount;
         this.title = title;
         this.content = content;
+        this.senderId = senderId;
     }
 }
