@@ -1,6 +1,7 @@
 package com.example.notiservice.biz;
 
-import com.example.notiservice.domain.channel.EmailNotification;
+import com.example.notiservice.db.nosql.document.Status;
+import com.example.notiservice.domain.channel.NotificationChannel;
 import com.example.notiservice.domain.channel.SMSNotification;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
@@ -18,15 +19,18 @@ public class SMSBiz implements ThirdPartyInterface{
 
     @Override
     @Async
-    public CompletableFuture<String> send(Object channel, String title, String content) {
+    public CompletableFuture<NotificationChannel> send(Object channel, String title, String content) {
         SMSNotification smsNotification = (SMSNotification) channel;
-        log.info("sending email... from {}, to {}, title: {}, content: {}", smsNotification.getSenderPhoneNumber(), smsNotification.getReceiverPhoneNumber(), title, content);
+        log.info("sending SMS... from {}, to {}, title: {}, content: {}", smsNotification.getSenderPhoneNumber(), smsNotification.getReceiverPhoneNumber(), title, content);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        log.info("send finish from {}, to {}, title: {}, content: {}", smsNotification.getSenderPhoneNumber(), smsNotification.getReceiverPhoneNumber(), title, content);
-        return CompletableFuture.completedFuture(smsNotification.getReceiverPhoneNumber());
+        throw new IllegalStateException("에러 발생했으욥");
+//        log.info("send finish from {}, to {}, title: {}, content: {}", smsNotification.getSenderPhoneNumber(), smsNotification.getReceiverPhoneNumber(), title, content);
+//
+//        smsNotification.setIsSuccess(Status.SUCCESS);
+//        return CompletableFuture.completedFuture(smsNotification);
     }
 }

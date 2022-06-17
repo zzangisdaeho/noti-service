@@ -1,10 +1,12 @@
 package com.example.notiservice.biz;
 
+import com.example.notiservice.domain.channel.NotificationChannel;
+
 import java.util.concurrent.CompletableFuture;
 
 public interface ThirdPartyInterface {
 
-    public boolean support(Object channel);
+    boolean support(Object channel);
 
-    public CompletableFuture<String> send(Object channel, String title, String content);
+    CompletableFuture<NotificationChannel> send(Object channel, String title, String content);
 }

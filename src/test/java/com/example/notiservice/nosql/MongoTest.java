@@ -1,7 +1,7 @@
 package com.example.notiservice.nosql;
 
-import com.example.notiservice.db.nosql.document.Book;
-import com.example.notiservice.db.nosql.repository.BookRepository;
+import com.example.notiservice.db.nosql.document.SuccessLog;
+import com.example.notiservice.db.nosql.repository.SuccessLogRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,20 +13,20 @@ import java.util.List;
 public class MongoTest {
 
     @Autowired
-    BookRepository bookRepository;
+    SuccessLogRepository bookRepository;
 
     @Test
     void read(){
-        List<Book> all = bookRepository.findAll();
+        List<SuccessLog> all = bookRepository.findAll();
 
         System.out.println("all = " + all);
     }
 
-    @Test
-    void write(){
-        Book book = new Book();
-        book.setName("test1");
-        book.setAuthor("daeho1");
-        bookRepository.save(book);
-    }
+//    @Test
+//    void write(){
+//        SuccessLog book = new SuccessLog();
+//        book.setName("test1");
+//        book.setAuthor("daeho1");
+//        bookRepository.save(book);
+//    }
 }

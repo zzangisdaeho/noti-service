@@ -35,7 +35,7 @@ public class TestController {
 //        Notification notification = new Notification("senderId1", "testTitle", "testContent", "transAction1", List.of(emailNotification1, emailNotification2, smsNotification, socialNetworkNotification));
 
 
-        String jsonInString = "";
+        String jsonInString = null;
 
         try{
             jsonInString = objectMapper.writeValueAsString(request);

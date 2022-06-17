@@ -1,6 +1,8 @@
 package com.example.notiservice.biz;
 
+import com.example.notiservice.db.nosql.document.Status;
 import com.example.notiservice.domain.channel.EmailNotification;
+import com.example.notiservice.domain.channel.NotificationChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,7 @@ public class EmailBiz implements ThirdPartyInterface{
 
     @Override
     @Async
-    public CompletableFuture<String> send(Object channel, String title, String content) {
+    public CompletableFuture<NotificationChannel> send(Object channel, String title, String content) {
         EmailNotification emailNotification = (EmailNotification) channel;
         log.info("sending email... from {}, to {}, title: {}, content: {}", emailNotification.getSenderEmailAddress(), emailNotification.getReceiverEmailAddress(), title, content);
         try {
@@ -26,6 +28,8 @@ public class EmailBiz implements ThirdPartyInterface{
             e.printStackTrace();
         }
         log.info("send finish from {}, to {}, title: {}, content: {}", emailNotification.getSenderEmailAddress(), emailNotification.getReceiverEmailAddress(), title, content);
-        return CompletableFuture.completedFuture(emailNotification.getReceiverEmailAddress());
+
+        emailNotification.setIsSuccess(Status.SUCCESS);
+        return CompletableFuture.completedFuture(emailNotification);
     }
 }
