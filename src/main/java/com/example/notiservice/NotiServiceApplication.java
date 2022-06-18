@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @EnableAsync
-@EnableCaching //todo cache clustering 필요 (redis 사용 예정)
+@EnableCaching
 public class NotiServiceApplication {
 
     public static void main(String[] args) {
