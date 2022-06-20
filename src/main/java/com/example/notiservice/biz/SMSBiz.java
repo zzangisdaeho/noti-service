@@ -37,10 +37,10 @@ public class SMSBiz implements ThirdPartyInterface{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        throw new IllegalStateException("에러 발생했으욥");
-        log.info("send finish from {}, to {}, title: {}, content: {}, credential: {}", smsNotification.getSenderPhoneNumber(), smsNotification.getReceiverPhoneNumber(), title, content, credential);
-
-        smsNotification.setIsSuccess(Status.SUCCESS);
-        return CompletableFuture.completedFuture(smsNotification);
+        throw new IllegalStateException("에러 발생했으욥");
+//        log.info("send finish from {}, to {}, title: {}, content: {}, credential: {}", smsNotification.getSenderPhoneNumber(), smsNotification.getReceiverPhoneNumber(), title, content, credential);
+//
+//        smsNotification.setIsSuccess(Status.SUCCESS);
+//        return CompletableFuture.completedFuture(smsNotification);
     }
 }
